@@ -9,7 +9,7 @@ openai
 # Anthropic Integration
 langchain-anthropic
 
-# Google Gemini (PaLM) Integration
+# Google Gemini
 langchain-google-genai
 google-generativeai
 
@@ -17,6 +17,7 @@ google-generativeai
 langchain-huggingface
 transformers
 huggingface-hub
+torch
 
 # Environment Variable Management
 python-dotenv
