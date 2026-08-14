@@ -19,6 +19,9 @@ transformers
 huggingface-hub
 torch
 
+# Hugging Face Embeddings
+sentence-transformers
+
 # Environment Variable Management
 python-dotenv
 
