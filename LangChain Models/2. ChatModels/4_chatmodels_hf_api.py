@@ -4,7 +4,7 @@ from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 load_dotenv()
 
 llm = HuggingFaceEndpoint(
-    repo_id="Qwen/Qwen2.5-7B-Instruct",
+    repo_id="meta-llama/Llama-3.1-8B-Instruct",
     task="text-generation"
 )
 

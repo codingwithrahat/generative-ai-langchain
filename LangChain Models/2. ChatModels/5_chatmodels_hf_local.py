@@ -1,7 +1,7 @@
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 import os
 
-os.environ["HF_HOME"] = "E:/huggingface_cache"
+os.environ["HF_HOME"] = "/home/rahat/local_models/huggingface_cache"
 
 llm = HuggingFacePipeline.from_model_id(
     model_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",

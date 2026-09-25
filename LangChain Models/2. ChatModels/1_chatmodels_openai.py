@@ -7,4 +7,4 @@ model = ChatOpenAI(modle = 'gpt-4', temperature=1.5, max_completion_tokens=10)
 
 result = model.invoke("what is the capital of bd.")
 
-print(result)
+print(result.content)
