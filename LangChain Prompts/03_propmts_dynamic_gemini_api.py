@@ -1,4 +1,4 @@
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 
 import streamlit as st
@@ -8,12 +8,21 @@ from langchain_core.prompts import PromptTemplate
 load_dotenv()
 
 
-llm = HuggingFaceEndpoint(
-    repo_id="meta-llama/Llama-3.1-8B-Instruct",
-    task="text-generation"
+# Model selection
+model_name = st.selectbox(
+    "Select Model",
+    [
+        "gemini-3.5-flash-lite",
+        "gemini-3.8-flash",
+        "gemini-3.1-flash-lite"
+    ]
 )
 
-model = ChatHuggingFace(llm=llm)
+
+# Create selected model
+model = ChatGoogleGenerativeAI(
+    model=model_name
+)
 
 
 st.header("Programming Tutor ChatBot")
@@ -69,6 +78,12 @@ template = PromptTemplate(
 
     Student Question: {question}
 
+    Subject Rules:
+    1. Answer only questions related to the selected subject.
+    2. If the question is unrelated to the selected subject, clearly say that
+       the question is outside the selected subject.
+    3. Do not answer an unrelated question.
+
     Response type rules:
 
     - Explain:
@@ -109,5 +124,5 @@ if st.button("Ask AI"):
 
         result = model.invoke(prompt)
 
-        st.write(result.content)
+        st.write(result.content[0]["text"])
 
