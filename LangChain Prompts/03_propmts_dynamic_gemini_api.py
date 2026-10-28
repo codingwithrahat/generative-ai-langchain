@@ -2,7 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 
 import streamlit as st
-from langchain_core.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate, load_prompt
 
 
 load_dotenv()
@@ -67,62 +67,25 @@ question = st.text_input(
     placeholder="e.g. What is a pointer in C++?"
 )
 
+template = load_prompt('programming_tutor_prompt_template.json')
 
-template = PromptTemplate(
-    template="""
-    You are a helpful programming tutor.
-
-    Subject: {subject}
-    Difficulty: {difficulty}
-    Response Type: {response_type}
-
-    Student Question: {question}
-
-    Subject Rules:
-    1. Answer only questions related to the selected subject.
-    2. If the question is unrelated to the selected subject, clearly say that
-       the question is outside the selected subject.
-    3. Do not answer an unrelated question.
-
-    Response type rules:
-
-    - Explain:
-      Explain the concept clearly with simple intuition.
-
-    - Give Example:
-      Explain the concept and provide a simple example.
-
-    - Give Hint:
-      Give only hints and guidance.
-      Do not provide the complete solution.
-
-    - Step-by-Step Solution:
-      Explain the solution step by step.
-
-    - Short Answer:
-      Give a concise and direct answer.
-      Avoid unnecessary explanation.
-    """,
-
-    input_variables=[
-        "subject",
-        "difficulty",
-        "response_type",
-        "question"
-    ]
-)
-
-#here we fill the template with the user inputs and generate the final prompt to send to the model.
-prompt = template.invoke({
-    'subject':subject,
-    'difficulty':difficulty,
-    'response_type':response_type,
-    'question':question
-})
 
 if st.button("Ask AI"):
 
-        result = model.invoke(prompt)
+    #this is the new way to create a chain with the prompt template and the model. The chain will handle the prompt generation and model invocation.
 
-        st.write(result.content[0]["text"])
+    #here | is not bitwise or, it is a new operator introduced in langchain to create a chain with the prompt template and the model. The chain will handle the prompt generation and model invocation.
+
+    chain = template | model
+
+    result = chain.invoke({
+        'subject':subject,
+        'difficulty':difficulty,
+        'response_type':response_type,
+        'question':question
+    })
+
+    # st.write(result.content)
+
+    st.write(result.content[0]["text"])
 
