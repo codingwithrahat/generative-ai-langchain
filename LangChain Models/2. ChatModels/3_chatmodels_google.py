@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite")
+model = ChatGoogleGenerativeAI(model="gemini-3.8-flash")
 
 response = model.invoke("who is the president of bangladesh?")
 
-print(response.content)
+print(response.content[0]["text"])

@@ -10,6 +10,7 @@ llm = HuggingFacePipeline.from_model_id(
         "temperature": 0.5,
         "max_new_tokens": 100,
         "do_sample": True,
+        "return_full_text": False
     }
 )
 
