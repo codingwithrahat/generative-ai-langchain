@@ -37,3 +37,5 @@ streamlit
 #for data validation
 pydantic
 
+#for graph visualization
+grandalf
