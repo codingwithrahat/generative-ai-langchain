@@ -2,6 +2,9 @@
 langchain
 langchain-core
 
+#langchain output parsers
+langchain-classic
+
 # OpenAI Integration
 langchain-openai
 openai
@@ -25,11 +28,12 @@ python-dotenv
 numpy
 scikit-learn
 
-# UI
-streamlit
-
 # Machine Learning Framework
 torch
 
+# UI
+streamlit
+
 #for data validation
 pydantic
+
