@@ -2,6 +2,9 @@
 langchain
 langchain-core
 
+# Langchain Community
+langchain-community
+
 #langchain output parsers
 langchain-classic
 
