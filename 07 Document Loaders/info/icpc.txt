@@ -1,0 +1,11 @@
+ICPC stands for International Collegiate Programming Contest.
+
+ICPC is one of the most prestigious programming competitions for university students.
+
+Teams usually consist of three students.
+
+Each team solves multiple algorithmic problems within a limited time.
+
+Students need strong knowledge of Data Structures, Algorithms, Graph Theory, Dynamic Programming and Mathematics.
+
+The ICPC World Finals is the final stage of the competition.

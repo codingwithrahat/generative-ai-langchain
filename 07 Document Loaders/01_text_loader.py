@@ -1,6 +1,6 @@
 from langchain_community.document_loaders import TextLoader
 
-loader = TextLoader("icpc.txt", encoding="utf-8")
+loader = TextLoader("info/icpc.txt", encoding="utf-8")
 #encoding is not mandartory
 #but it is important to read accurate if document has special characters like non-english characters, emojis, etc.
 

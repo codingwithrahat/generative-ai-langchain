@@ -10,7 +10,7 @@ model = ChatGoogleGenerativeAI(
     model="gemini-3.5-flash-lite"
 )
 
-loader = TextLoader("icpc.txt", encoding="utf-8")
+loader = TextLoader("info/icpc.txt", encoding="utf-8")
 
 documents = loader.load()
 
