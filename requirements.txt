@@ -8,6 +8,12 @@ langchain-community
 #langchain output parsers
 langchain-classic
 
+#langchain text splitters
+langchain-text-splitters
+
+#langchain experimental
+langchain-experimental
+
 # OpenAI Integration
 langchain-openai
 openai
@@ -42,3 +48,9 @@ pydantic
 
 #for graph visualization
 grandalf
+
+#pypdf for pdf document loader
+pypdf
+
+#for web based document loader
+beautifulsoup4
